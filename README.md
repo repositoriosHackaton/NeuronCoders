@@ -1,21 +1,10 @@
 # NeuronCoders
-En este espacio se sube el código creado para el grupo 
-
-Se debe agregar toda la documentación que ustedes consideren pertinente para la compresión de los modelos usados, la ejecución del código y los resultados obtenidos. 
-Puden, si desean, agregar imágenes o resultados obtenidos. 
-
-Recuerden que este readme es su puerta de entrada para su proyecto. 
-
-Un ejemplo puede ser: 
-# Nombre del Proyecto
-
-Breve descripción del proyecto.
 
 ## Tabla de contenidos
 
 1. [Nombre](#Nombre)
 2. [Descripción](#descripción)
-3. [Arquitectura](#Arquitectura)
+3. [Fuente_del_Dataset](#Fuente del Dataset)
 4. [Proceso](#Proceso)
 5. [Funcionalidades](#Funcionalidades)
 6. [Estado del proyecto](#EstadoDelProyecto)
@@ -23,43 +12,31 @@ Breve descripción del proyecto.
 
 
 * Nombre del proyecto
+Sistema de recomendación de recetas segun los ingredientes del usuario
 
-* Breve descripción del proyecto -> Alguna imagen o gif que muestre el proyecto
+* Descripción 
+El Sistema de Recomendación de Recetas utiliza un modelo de vectorización TF-IDF y similitud de coseno para encontrar recetas similares en función de los ingredientes ingresados por el usuario. Se utiliza el conjunto de datos "recetas-cocina" de Hugging Face para entrenar el modelo inicial y proporcionar recomendaciones. Funciona como un chat bot donde se le introduce los ingredientes del usuario y te recomienda las 3 recetas mas cercanas segun tus ingredientes y las recetas guardadas en su dataset, tambien puedes añadir recetas nuevas al dataset.
 
-* Arquitectura del proyecto + imagen
+* Fuente del Dataset
+El dataset utilizado se carga desde Hugging Face, específicamente el conjunto de datos "recetas-cocina".
 
-* Proceso de desarrollo:
+* Proceso:
 
--Fuente del dataset
--Limpieza de datos (img que lo valide)
--Manejo excepciones/control errores
--¿Qué modelo de Machine Learning están usando?
--Estadísticos (Valores, gráficos, …)
--Métrica(s) de evaluación del modelo
+Limpieza de Datos
+Se eliminan filas con valores nulos y la columna 'uuid' del dataset.
 
-* Funcionalidades extra:
+Modelo de Machine Learning
+Se utiliza un modelo de vectorización TF-IDF para convertir descripciones de ingredientes en vectores numéricos y se calcula la similitud de coseno entre los ingredientes del usuario y las recetas en el dataset.
 
-Ejem 1: Implementación de chatbot
-- Tecnología/Herramientas usadas (Librería, Framework, …)
-- Arquitectura (img)
-- Indicar fuente del dataset
-- Limpieza de datos (ejem: se usó PLN + img que lo validen)
-- Manejo excepciones/control errores
-- En caso de usar un modelo de ML indicar ¿Qué modelo de Machine Learning están usando?
-- Estadísticos (Valores, gráficos, …)
-- Métrica(s) de evaluación del modelo
+Estadísticas y Métricas
+Se utilizan métricas como la similitud de coseno para evaluar la similitud entre ingredientes del usuario y recetas recomendadas.
 
-Ejem 2: Integración del proyecto en una pág web
-- Tecnología/Herramientas usadas …
-- Arquitectura (img)
+* Funcionalidades
+Recomendación de Recetas: Permite al usuario ingresar ingredientes separados por coma para recibir recomendaciones de recetas similares.
+Agregar Receta Personalizada: Los usuarios pueden agregar nuevas recetas al sistema, que se integran dinámicamente al dataset y recalculan la matriz TF-IDF para futuras recomendaciones.
 
-Ejem 3: Integración del proyecto en un canal WhatsApp, Discord, Telegram, Correo, …
-- Tecnología/Herramientas usadas …
-- Arquitectura (img)
+* Estado del proyecto
+Actualmente, el proyecto se encuentra en fase de desarrollo activo. Se están explorando mejoras adicionales como la integración con interfaces de usuario más robustas y la expansión del dataset para mejorar la precisión de las recomendaciones.
 
-Ejem 4: Desarrollo de interfaz gráfica de usuario
-- Tecnología/Herramientas usadas …
-- Arquitectura (img)
-
-Ejem …: …
-- Tecnología/Herramientas usadas …
+* Agradecimientos
+Agradecemos a Hugging Face por proporcionar el dataset "recetas-cocina" y a Streamlit por la plataforma que facilita la creación de interfaces de usuario interactivas para este proyecto.
